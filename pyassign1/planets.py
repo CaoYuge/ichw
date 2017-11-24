@@ -60,8 +60,11 @@ threads.append(t5)
 t6 = threading.Thread(target=draw_a_ellipse,args=(f,160,140,1,78))
 threads.append(t6)
 
-for t in threads:
-    t.setDaemon(True)
-    t.start()
+def main():
+    for t in threads:
+        t.setDaemon(True)
+        t.start()
+    wn.exitonclick()
 
-wn.exitonclick()
+if __name__ == '__main__':
+    main()
