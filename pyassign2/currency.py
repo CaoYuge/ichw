@@ -44,8 +44,13 @@ def test_getting_url():
     assert(getting_url('CNY','USD','10000000') == 'http://cs1110.cs.cornell.edu/2016fa/a1server.php?from=CNY&to=USD&amt=10000000')
     assert(getting_url('EUR','CNY','0.0000001') == 'http://cs1110.cs.cornell.edu/2016fa/a1server.php?from=EUR&to=CNY&amt=0.0000001')
 
+def test_exchange():
+    assert(exchange('USD','EUR','2.5') == '2.0952375' )
+    assert(exchange('USD','CNY','2.5') == '16.315375' )
+
 def test_all():
     test_getting_url()
+    test_exchange()
 
 def main():
     test_all()
