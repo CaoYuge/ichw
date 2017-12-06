@@ -2,6 +2,7 @@ import re
 from urllib.request import urlopen
 
 def getting_url(currency_from,currency_to,amount_from):
+    """Get the url from the values entered"""
     url = 'http://cs1110.cs.cornell.edu/2016fa/a1server.php?from=' + currency_from + '&to=' + currency_to + '&amt=' + '' + amount_from  # the url to be urlopened
     return url
 
@@ -40,15 +41,18 @@ def exchange(currency_from,currency_to,amount_from):
     # Processing the strings fedback to get the amount_to
 
 def test_getting_url():
+    """Test the function of getting_url"""
     assert(getting_url('USD','EUR','2.5') == 'http://cs1110.cs.cornell.edu/2016fa/a1server.php?from=USD&to=EUR&amt=2.5')
     assert(getting_url('CNY','USD','10000000') == 'http://cs1110.cs.cornell.edu/2016fa/a1server.php?from=CNY&to=USD&amt=10000000')
     assert(getting_url('EUR','CNY','0.0000001') == 'http://cs1110.cs.cornell.edu/2016fa/a1server.php?from=EUR&to=CNY&amt=0.0000001')
 
 def test_exchange():
+    """Test the function of exchange"""
     assert(exchange('USD','EUR','2.5') == '2.0952375' )
     assert(exchange('USD','CNY','2.5') == '16.315375' )
 
 def test_all():
+    """Test all the functions"""
     test_getting_url()
     test_exchange()
 
